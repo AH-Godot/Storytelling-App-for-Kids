@@ -13,7 +13,7 @@ def img2text(url):
     return text
 
 # Main part
-st.set_page_config(page_title="Your Image to Audio Story", page_icon="🦜")
+st.set_page_config(page_title="Storytelling for Kids", page_icon="🎠")
 st.header("Turn Your Image to Audio Story")
 uploaded_file = st.file_uploader("Select an Image...")
 
@@ -34,7 +34,7 @@ if uploaded_file is not None:
     st.text('Generating a story...')
     story_pipe = pipeline("text-generation", model="pranavpsv/genre-story-generator-v2")
     prompt = "Write a story for 3-10 years old kids" + scenario
-    story_results = story_pipe(scenario)
+    story_results = story_pipe(prompt)
     story = story_results[0]['generated_text']
     st.write(f"**Story:** {story}")
 
