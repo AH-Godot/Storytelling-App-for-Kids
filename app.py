@@ -39,7 +39,7 @@ if uploaded_file is not None:
     with open(uploaded_file.name, "wb") as file:
         file.write(bytes_data)
 
-col1, col2 = st.columns([1, 1.2])
+    col1, col2 = st.columns([1, 1.2])
     with col1:
         # Display the uploaded image neatly in the left column
         st.image(uploaded_file, caption="✨ Your Magic Picture! ✨", use_column_width=True)
