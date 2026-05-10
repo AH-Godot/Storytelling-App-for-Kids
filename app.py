@@ -32,12 +32,12 @@ if uploaded_file is not None:
 
     # Stage 2: Text to Story (Inline)
     st.text('✍️ Writing a magical story...')
-    story_pipe = pipeline("text-generation", model="pranavpsv/genre-story-generator-v2")
-    prompt = "Write a story for 3-10 years old kids" + scenario
-    story_results = story_pipe(prompt)
-    story = story_results[0]['generated_text']
+    story_pipe = pipeline("text-generation", model="roneneldan/TinyStories-33M")
+    prompt = f"Once upon a time, there was {scenario.lower().strip()}. "
+    story_results = story_pipe(prompt, max_new_tokens=100, do_sample=True, temperature=0.7, return_full_text=False)
+    story = prompt + story_results[0]['generated_text']
     st.write(f"**Your Story:** {story}")
-
+    
     # Stage 3: Story to Audio (Inline)
     st.text('🎙️ Getting the storyteller ready...')
     audio_pipe = pipeline("text-to-audio", model="Matthijs/mms-tts-eng")
