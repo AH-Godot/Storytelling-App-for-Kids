@@ -47,7 +47,7 @@ if uploaded_file is not None:
     with col2:
         # Stage 1: Image Processing & Captioning
         with st.spinner('👀 Looking closely at your picture... 🕵️‍♂️'):
-            scenario = imag2text(uploaded_file.name)[0]["generated_text"]
+            scenario = img2text(uploaded_file.name)[0]["generated_text"]
         with st.expander("🔍 Peek behind the magic curtain 🧙‍♀️"):
             st.write(scenario)
 
