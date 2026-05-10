@@ -1,8 +1,10 @@
-st.title(Storytelling App)
-
-# Import part
 import streamlit as st
 from transformers import pipeline
+from PIL import Image
+
+# Set up the app title and layout
+st.title("🎠 Storytelling App for Kids")
+st.write("Write a story for 3-10-year-old kids and tell it to them!")
 
 # Function part
 def img2text(url):
